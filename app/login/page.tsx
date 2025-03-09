@@ -5,12 +5,12 @@ import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import { Shield, Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
-
+import { Shield } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 type FormData = {
   username: string;
   password: string;
@@ -50,7 +50,10 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+    <div className="flex min-h-screen bg-white">
+      {/* Left side - Login Form */}
+    
+      <div className="min-h-screen bg-background flex items-center w-[50%] justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
@@ -121,6 +124,41 @@ export default function Login() {
           </form>
         </CardContent>
       </Card>
+  
+      </div>
+
+      {/* Right side - Illustration */}
+      <div className="hidden md:block md:w-1/2 bg-pink-100 p-8">
+        <div className="h-full flex items-center justify-center relative">
+          <div className="max-w-md text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-indigo-600 mb-4">
+            SpritX
+            </h2>
+            
+            {/* Product card example */}
+            <div className="bg-white rounded-xl shadow-md p-6 mb-8 mx-auto max-w-xs">
+              <div className="w-24 h-24 mx-auto mb-3 bg-blue-200 rounded-lg flex items-center justify-center">
+                <div className="w-16 h-16 bg-blue-300 rounded-full"></div>
+              </div>
+              <h3 className="font-bold mb-2">Empowering University Sports in Sri Lanka</h3>
+              <p className="text-sm text-gray-600 mb-3">MoraSpirit, the leading light of university sports is in its way to create a full of pride, highly passionate sporting culture at university level in Sri Lanka.</p>
+             
+            </div>
+            
+            {/* Decorative background shapes */}
+            <div className="absolute left-0 bottom-0 w-64 h-64 bg-indigo-200 rounded-full opacity-50"></div>
+            <div className="absolute right-0 top-1/4 w-48 h-48 bg-pink-300 rounded-full opacity-50"></div>
+            
+            {/* Dot indicators */}
+            <div className="flex justify-center space-x-2 mt-4">
+              <span className="w-2 h-2 rounded-full bg-pink-500"></span>
+              <span className="w-2 h-2 rounded-full bg-pink-300"></span>
+              <span className="w-2 h-2 rounded-full bg-pink-300"></span>
+              <span className="w-2 h-2 rounded-full bg-pink-300"></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
