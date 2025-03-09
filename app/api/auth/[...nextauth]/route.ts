@@ -28,8 +28,7 @@ const handler = NextAuth({
         const isValid = await bcrypt.compare(credentials.password, user.password);
         
         if (!isValid) {
-          throw new Error('Invalid username or password, please try again');
-          
+          throw new Error('Invalid username or password');
         }
 
         return {
